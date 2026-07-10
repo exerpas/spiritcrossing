@@ -39,23 +39,31 @@
         </div>
     </header>
 
-    <!-- SECCIÓN DE MULTIMEDIA (Tráiler o Capturas) -->
-    <section id="media" class="section-media">
-        <div class="container">
-            <h2 class="section-title">TAKE A LOOK TO THE GAME</h2>
-            <div class="media-box">
-                <!-- Puedes poner un video de YouTube cambiando el ID de abajo, o reemplazarlo por una etiqueta <img> si prefieres una captura -->
-                <iframe class="video-trailer" src="https://www.youtube.com/embed/40LmxL5Cm6I" title="Game Trailer" frameborder="0" allowfullscreen></iframe>
-                <!-- SECCIÓN DEL CARRUSEL DE IMÁGENES -->
+    <!-- CONTENEDOR TODO EN UNO: VIDEO Y CAPTURAS -->
 <div class="carousel-container">
     <!-- Flecha Izquierda -->
     <button class="carousel-btn prev-btn" onclick="cambiarImagen(-1)">&#10094;</button>
     
-    <!-- Contenedor de las Imágenes -->
+    <!-- Todo el contenido que va a rotar -->
     <div class="carousel-slide">
-        <img src="captura1.jpg" class="slider-img active" alt="Captura 1 del juego">
-        <img src="captura2.jpg" class="slider-img" alt="Captura 2 del juego">
-        <img src="captura3.jpg" class="slider-img" alt="Captura 3 del juego">
+        <!-- 1. El video de YouTube (Elemento activo por defecto) -->
+        <div class="slider-item active">
+            <!-- AQUÍ VA TU VIDEO: Cambia este iframe por el tuyo exacto si los enlaces varían -->
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/6e-G0lF8S8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
+        </div>
+
+        <!-- 2. Tus capturas de pantalla -->
+        <div class="slider-item">
+            <img src="captura1.png" class="slider-img" alt="Captura 1 del juego">
+        </div>
+        <div class="slider-item">
+            <img src="captura2.png" class="slider-img" alt="Captura 2 del juego">
+        </div>
+    </div>
+
+    <!-- Flecha Derecha -->
+    <button class="carousel-btn next-btn" onclick="cambiarImagen(1)">&#10095;</button>
+</div>
     </div>
 
     <!-- Flecha Derecha -->
