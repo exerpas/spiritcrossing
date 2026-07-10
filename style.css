@@ -261,6 +261,7 @@ body {
 
 /* Footer */
 footer {
+    position: relative; /* <--- Agrega esta línea aquí */
     background-color: #0b0e17;
     padding: 30px;
     text-align: center;
@@ -296,12 +297,12 @@ footer {
 }
 
 .character-corner {
-    position: fixed;     /* Cambiamos a 'fixed' para que se acomode respecto a la ventana o el fondo total */
-    right: 20px;         /* Lo mantiene en la esquina derecha */
-    bottom: 50px;        /* Súbelo o bájalo desde aquí para alinearlo con la línea del copyright */
-    max-width: 220px;    /* Ajusta el tamaño si sientes que tapa mucho */
+    position: absolute;  /* Cambiamos 'fixed' por 'absolute' para que se quede estático en su sección */
+    right: 10px;         /* Separación desde el borde derecho de su sección */
+    bottom: 0px;         /* Pégalo a la línea bajando o subiendo este número */
+    max-width: 220px;    
     width: 100%;
     height: auto;
-    z-index: 100;        /* Un número alto para que no lo tape ninguna sección */
+    z-index: 10;
     pointer-events: none;
 }
