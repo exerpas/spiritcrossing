@@ -316,3 +316,67 @@ footer {
     pointer-events: none; /* No interfiere con clics */
     filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); /* Sombra para profundidad */
 }
+
+/* Contenedor del carrusel */
+.carousel-container {
+    position: relative;
+    max-width: 800px; /* Ajusta este ancho para que combine con el tamaño de tu video */
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor interno de imágenes */
+.carousel-slide {
+    width: 100%;
+    display: flex;
+}
+
+/* Estilo para todas las imágenes del slider */
+.slider-img {
+    width: 100%;
+    display: none; /* Oculta todas las imágenes por defecto */
+    height: auto;
+    object-fit: cover;
+}
+
+/* Solo la imagen con la clase 'active' se mostrará */
+.slider-img.active {
+    display: block;
+    animation: unirse 0.4s ease-in-out;
+}
+
+/* Animación suave al cambiar de imagen */
+@keyframes unirse {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Botones de las flechas a los costados */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-principal-neon, #fffb00); /* Cambia al color de tu juego al pasar el mouse */
+    color: black;
+}
+
+/* Posición exacta de cada flecha */
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
