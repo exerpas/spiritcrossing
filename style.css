@@ -298,7 +298,7 @@ footer {
 .character-corner {
     position: absolute;  /* Permite moverlo libremente por la pantalla */
     right: 20px;         /* Separación desde el borde derecho de la pantalla */
-    bottom: 40px;        /* Separación desde el fondo (justo arriba del texto del copyright) */
+    bottom: -10px;        /* Separación desde el fondo (justo arriba del texto del copyright) */
     max-width: 250px;    /* Controla qué tan grande se verá el personaje */
     width: 100%;
     height: auto;
