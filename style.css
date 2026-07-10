@@ -414,3 +414,48 @@ footer {
     display: block !important;
     border-radius: 10px;
 }
+/* --- EFECTO DE NUBES DE FONDO --- */
+
+/* Preparamos la sección de contenido para recibir capas en el fondo */
+.section-content {
+    position: relative;
+    overflow: hidden; /* Evita que las nubes se salgan de la pantalla */
+}
+
+/* Creamos la capa de nubes usando gradientes CSS (sin necesidad de imágenes externas) */
+.section-content::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%; /* El doble de ancho para que la animación sea fluida al correr */
+    height: 250px; /* Qué tan alto van a subir las nubes en la sección */
+    z-index: 0; /* Se coloca por detrás del texto y los bloques */
+    pointer-events: none; /* No interfiere con los clics del usuario */
+    
+    /* Dibujamos siluetas de nubes suaves usando transparencias blancas */
+    background: 
+        radial-gradient(circle at 20% 120%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 60%),
+        radial-gradient(circle at 50% 130%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.06) 50%, transparent 70%),
+        radial-gradient(circle at 80% 115%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 45%, transparent 65%);
+    background-size: 50% 100%;
+    
+    /* Activamos el movimiento */
+    animation: moverNubes 45s linear infinite;
+}
+
+/* Forzamos a que el contenedor de las tarjetas se quede al frente de las nubes */
+.grid-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animación que desplaza el fondo horizontalmente */
+@keyframes moverNubes {
+    0% {
+        background-position: 0px bottom;
+    }
+    100% {
+        background-position: 1100px bottom; /* Se desplaza suavemente */
+    }
+}
