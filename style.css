@@ -120,7 +120,7 @@ body {
 /* EL BOTÓN DE INSTALAR */
 .btn-download {
     display: inline-block;
-    font-family: 'Bangers', cursive;
+    font-family: 'League Gothic', sans-serif;
     font-size: 2.2rem;
     color: #000;
     background-color: var(--color-principal-neon);
