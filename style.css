@@ -385,3 +385,31 @@ footer {
 /* Posición exacta de cada flecha */
 .prev-btn { left: 15px; }
 .next-btn { right: 15px; }
+/* --- TRUCO DEFINITIVO PARA EL CARRUSEL --- */
+
+/* 1. Oculta por defecto absolutamente TODO lo que esté dentro del carrusel */
+.carousel-slide .slider-item {
+    display: none !important;
+    width: 100% !important;
+}
+
+/* 2. FUERZA a que lo que tenga la clase 'active' se muestre, sea video o imagen */
+.carousel-slide .slider-item.active {
+    display: block !important;
+}
+
+/* 3. Asegura que las imágenes no midan 0 píxeles */
+.slider-img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 10px;
+}
+
+/* 4. Asegura que el video no se rompa */
+.video-trailer {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    display: block !important;
+    border-radius: 10px;
+}
