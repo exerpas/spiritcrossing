@@ -258,6 +258,7 @@ body {
 
 .discord { background-color: var(--color-discord); }
 .twitter { background-color: #1DA1F2; }
+.steam { background-color: #1b2838; }
 
 /* Footer */
 footer {
