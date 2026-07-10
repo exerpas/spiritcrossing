@@ -145,6 +145,30 @@
         // Añade la clase activa a la nueva imagen
         imagenes[indiceImagen].classList.add('active');
     }
+        
+<script>
+    let indiceImagen = 0;
+    // Ahora busca tanto el bloque del video como las fotos
+    const elementos = document.querySelectorAll('.slider-item');
+
+    function cambiarImagen(direccion) {
+        // Quita la clase activa al elemento actual (sea video o foto)
+        elementos[indiceImagen].classList.remove('active');
+        
+        // Calcula la nueva posición
+        indiceImagen += direccion;
+        
+        if (indiceImagen >= elementos.length) {
+            indiceImagen = 0;
+        }
+        if (indiceImagen < 0) {
+            indiceImagen = elementos.length - 1;
+        }
+        
+        // Muestra el nuevo elemento
+        elementos[indiceImagen].classList.add('active');
+    }
+        
 </script>
 </body>
 </html>
