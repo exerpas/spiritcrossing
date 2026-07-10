@@ -414,38 +414,40 @@ footer {
     display: block !important;
     border-radius: 10px;
 }
-/* --- ILUMINACIÓN AMBIENTAL SUAVE (SIN FRANJAS GRISES) --- */
+/* --- NUBES ESTILO CARTOON - VERSIÓN LIGERA --- */
 
+/* 1. Eliminamos el recorte de la sección */
 .section-content {
     position: relative;
-    overflow: hidden;
-    /* Le damos un color base sólido para que el degradado funcione encima */
-    background-color: #0b111e; 
+    overflow: visible; /* Cambiado a visible para que no corte la niebla */
 }
 
-/* Forzamos tus bloques de texto a quedarse al frente */
-.grid-container {
-    position: relative;
-    z-index: 5;
-}
-
-/* Capa de iluminación baja en el fondo */
+/* 2. Usamos una sola capa global que se integre con el fondo */
 .section-content::before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -50px; 
     left: 0;
     width: 100%;
-    height: 300px; /* Altura máxima de la iluminación */
-    z-index: 1;
+    height: 300px;
+    z-index: 0;
     pointer-events: none;
     
-    /* Degradado lineal que nace del fondo oscuro y se aclara SUAVEMENTE abajo */
+    /* Degradado ultra suave, sin círculos matemáticos que creen bordes */
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(255, 255, 255, 0.01) 30%,
-        rgba(255, 255, 255, 0.04) 70%,
-        rgba(255, 255, 255, 0.07) 100%
+        rgba(255, 255, 255, 0.02) 20%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.03) 100%
     );
+    
+    /* Difuminado suave para que parezca vapor/niebla de juego */
+    filter: blur(20px);
+}
+
+/* 3. Aseguramos que los cuadros estén SIEMPRE encima */
+.grid-container {
+    position: relative;
+    z-index: 2; /* Mayor que el z-index de las nubes */
 }
