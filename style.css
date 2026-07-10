@@ -414,3 +414,104 @@ footer {
     display: block !important;
     border-radius: 10px;
 }
+/* --- NUBES CARTOON SUPERPUESTAS (DOBLE CAPA Y DESVANECIDO) --- */
+
+.section-content {
+    position: relative;
+    overflow: hidden; /* Mantiene la animación dentro de la sección */
+}
+
+/* Forzamos el contenedor principal a quedarse enfrente */
+.grid-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Capa 1: Nubes más lejanas, más grandes y más lentas */
+.section-content::before {
+    content: "";
+    position: absolute;
+    bottom: -150px; /* Bajamos para usar el desvanecido */
+    left: 0;
+    width: 200%;
+    height: 400px;
+    z-index: 0;
+    pointer-events: none;
+    
+    /* Gradientes radiales para crear formas redondeadas *pero* con opacidad variable */
+    /* El truco es que el centro es visible (0.08) y el borde se desvanece (transparent) */
+    background: 
+        radial-gradient(circle at 15% 100%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 35% 110%, rgba(255, 255, 255, 0.12) 0%, transparent 70%),
+        radial-gradient(circle at 55% 100%, rgba(255, 255, 255, 0.06) 0%, transparent 65%),
+        radial-gradient(circle at 75% 105%, rgba(255, 255, 255, 0.10) 0%, transparent 75%),
+        radial-gradient(circle at 95% 100%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+        
+    background-size: 50% 100%;
+    
+    /* Desenfoque súper sutil para que no sean "tiesas", solo suavemente cartoon */
+    filter: blur(8px);
+    
+    /* Animación lenta y sutil */
+    animation: vientoLentoCartoon 50s linear infinite, flotarSutil 8s ease-in-out infinite alternate;
+}
+
+/* Capa 2: Nubes más cercanas, más pequeñas y más rápidas */
+.section-content::after {
+    content: "";
+    position: absolute;
+    bottom: -80px; /* Un poco más arriba que la capa 1 */
+    left: 0;
+    width: 200%;
+    height: 250px;
+    z-index: 1; /* Un poco más enfrente que ::before, pero detrás de grid-container */
+    pointer-events: none;
+    
+    /* Mismo truco, pero con opacidades más altas (0.15 y 0.20) para que se noten más */
+    background: 
+        radial-gradient(circle at 10% 100%, rgba(255, 255, 255, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 30% 115%, rgba(255, 255, 255, 0.20) 0%, transparent 65%),
+        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 70% 110%, rgba(255, 255, 255, 0.18) 0%, transparent 70%),
+        radial-gradient(circle at 90% 100%, rgba(255, 255, 255, 0.15) 0%, transparent 55%);
+        
+    background-size: 50% 100%;
+    
+    /* Menos desenfoque para que se vean más "lindas" y cartoon */
+    filter: blur(3px);
+    
+    /* Animación más rápida para la capa de enfrente */
+    animation: vientoCartoonRapido 30s linear infinite, flotarSutil 6s ease-in-out infinite alternate-reverse;
+}
+
+/* --- ANIMACIONES --- */
+
+/* Movimiento horizontal Lento (Viento Capa 1) */
+@keyframes vientoLentoCartoon {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+/* Movimiento horizontal Rápido (Viento Capa 2) */
+@keyframes vientoCartoonRapido {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+/* Balanceo Vertical (Efecto esponjoso) */
+@keyframes flotarSutil {
+    0% {
+        transform: translateY(0px) scaleY(1);
+    }
+    100% {
+        transform: translateY(-15px) scaleY(1.03); /* Movimiento más suave */
+    }
+}
