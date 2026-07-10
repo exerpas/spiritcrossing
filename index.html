@@ -39,41 +39,38 @@
         </div>
     </header>
 
-    <!-- CONTENEDOR TODO EN UNO: VIDEO Y CAPTURAS -->
-<div class="carousel-container">
-    <!-- Flecha Izquierda -->
-    <button class="carousel-btn prev-btn" onclick="cambiarImagen(-1)">&#10094;</button>
-    
-    <!-- Todo el contenido que va a rotar -->
-  <div class="carousel-slide">
-    <!-- El video tiene que tener 'slider-item' -->
-    <div class="slider-item active">
-            <!-- AQUÍ VA TU VIDEO: Cambia este iframe por el tuyo exacto si los enlaces varían -->
-            <iframe width="100%" height="450" src="https://www.youtube.com/embed/40LmxL5Cm6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
-      </div>
+    <!-- SECCIÓN MULTIMEDIA CON CARRUSEL INTEGRADO -->
+    <section id="media" class="section-media">
+        <div class="container">
+            <h2 class="section-title">TAKE A LOOK TO THE GAME</h2>
+            
+            <div class="carousel-container">
+                <!-- Flecha Izquierda -->
+                <button class="carousel-btn prev-btn" onclick="cambiarImagen(-1)">&#10094;</button>
+                
+                <!-- Contenido dinámico -->
+                <div class="carousel-slide">
+                    <!-- 1. El video de YouTube (Activo) -->
+                    <div class="slider-item active">
+                        <iframe class="video-trailer" src="https://www.youtube.com/embed/40LmxL5Cm6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
+                    </div>
 
-    <!-- CADA IMAGEN TIENE QUE TENER SU PROPIO DIV CON 'slider-item' -->
-    <div class="slider-item">
-        <img src="captura1.png" class="slider-img" alt="Captura 1">
-    </div>
+                    <!-- 2. Captura 1 -->
+                    <div class="slider-item">
+                        <img src="captura1.png" class="slider-img" alt="Captura 1">
+                    </div>
 
-    <div class="slider-item">
-        <img src="captura2.png" class="slider-img" alt="Captura 2">
-    </div>
-</div>
+                    <!-- 3. Captura 2 -->
+                    <div class="slider-item">
+                        <img src="captura2.png" class="slider-img" alt="Captura 2">
+                    </div>
+                </div>
 
-    <!-- Flecha Derecha -->
-    <button class="carousel-btn next-btn" onclick="cambiarImagen(1)">&#10095;</button>
-</div>
-    </div>
-
-    <!-- Flecha Derecha -->
-    <button class="carousel-btn next-btn" onclick="cambiarImagen(1)">&#10095;</button>
-</div>
+                <!-- Flecha Derecha -->
+                <button class="carousel-btn next-btn" onclick="cambiarImagen(1)">&#10095;</button>
             </div>
         </div>
     </section>
-
     <!-- SECCIÓN DE CONTENIDO (Novedades y Requisitos al estilo Brawlhalla) -->
     <section id="novedades" class="section-content">
         <div class="container grid-container">
@@ -148,33 +145,26 @@
     }
         
 <script>
-    let indiceImagen = 0;
-    
-    function cambiarImagen(direccion) {
-        // Buscamos todos los elementos del carrusel en el momento del clic
-        const elementos = document.querySelectorAll('.slider-item');
+        let indiceImagen = 0;
         
-        // Si por alguna razón no encuentra elementos, detiene la función para no dar error
-        if (elementos.length === 0) return;
+        function cambiarImagen(direccion) {
+            const elementos = document.querySelectorAll('.slider-item');
+            
+            if (elementos.length === 0) return;
 
-        // Quitamos la clase 'active' al elemento que se ve actualmente
-        elementos[indiceImagen].classList.remove('active');
-        
-        // Calculamos la nueva posición sumando 1 o restando 1
-        indiceImagen += direccion;
-        
-        // Si pasamos de la última imagen, vuelve al video (posición 0)
-        if (indiceImagen >= elementos.length) {
-            indiceImagen = 0;
+            elementos[indiceImagen].classList.remove('active');
+            
+            indiceImagen += direccion;
+            
+            if (indiceImagen >= elementos.length) {
+                indiceImagen = 0;
+            }
+            if (indiceImagen < 0) {
+                indiceImagen = elementos.length - 1;
+            }
+            
+            elementos[indiceImagen].classList.add('active');
         }
-        // Si vamos hacia atrás desde el video, va a la última imagen
-        if (indiceImagen < 0) {
-            indiceImagen = elementos.length - 1;
-        }
-        
-        // Mostramos el nuevo elemento agregando la clase 'active'
-        elementos[indiceImagen].classList.add('active');
-    }
-</script>
+    </script>
 </body>
 </html>
