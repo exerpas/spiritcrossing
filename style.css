@@ -336,18 +336,22 @@ footer {
     display: flex;
 }
 
-/* Estilo para todas las imágenes del slider */
-.slider-img {
+/* Cambiamos las reglas para ocultar/mostrar cualquier elemento (video o foto) */
+.slider-item {
     width: 100%;
-    display: none; /* Oculta todas las imágenes por defecto */
-    height: auto;
-    object-fit: cover;
+    display: none; /* Oculta todo por defecto */
 }
 
-/* Solo la imagen con la clase 'active' se mostrará */
-.slider-img.active {
-    display: block;
+.slider-item.active {
+    display: block; /* Muestra solo el que toque ver */
     animation: unirse 0.4s ease-in-out;
+}
+
+.slider-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* Animación suave al cambiar de imagen */
