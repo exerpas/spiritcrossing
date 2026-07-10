@@ -294,3 +294,14 @@ footer {
     display: inline-block;
     vertical-align: middle; /* Lo alinea perfectamente al centro vertical de la barra */
 }
+
+.character-corner {
+    position: absolute;  /* Permite moverlo libremente por la pantalla */
+    right: 20px;         /* Separación desde el borde derecho de la pantalla */
+    bottom: 40px;        /* Separación desde el fondo (justo arriba del texto del copyright) */
+    max-width: 250px;    /* Controla qué tan grande se verá el personaje */
+    width: 100%;
+    height: auto;
+    z-index: 10;         /* Asegura que el personaje quede por encima del fondo oscuro */
+    pointer-events: none; /* Hace que si alguien da clic sin querer sobre el personaje, no estorbe */
+}
