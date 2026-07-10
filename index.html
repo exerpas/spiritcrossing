@@ -148,27 +148,32 @@
         
 <script>
     let indiceImagen = 0;
-    // Ahora busca tanto el bloque del video como las fotos
-    const elementos = document.querySelectorAll('.slider-item');
-
+    
     function cambiarImagen(direccion) {
-        // Quita la clase activa al elemento actual (sea video o foto)
+        // Buscamos todos los elementos del carrusel en el momento del clic
+        const elementos = document.querySelectorAll('.slider-item');
+        
+        // Si por alguna razón no encuentra elementos, detiene la función para no dar error
+        if (elementos.length === 0) return;
+
+        // Quitamos la clase 'active' al elemento que se ve actualmente
         elementos[indiceImagen].classList.remove('active');
         
-        // Calcula la nueva posición
+        // Calculamos la nueva posición sumando 1 o restando 1
         indiceImagen += direccion;
         
+        // Si pasamos de la última imagen, vuelve al video (posición 0)
         if (indiceImagen >= elementos.length) {
             indiceImagen = 0;
         }
+        // Si vamos hacia atrás desde el video, va a la última imagen
         if (indiceImagen < 0) {
             indiceImagen = elementos.length - 1;
         }
         
-        // Muestra el nuevo elemento
+        // Mostramos el nuevo elemento agregando la clase 'active'
         elementos[indiceImagen].classList.add('active');
     }
-        
 </script>
 </body>
 </html>
