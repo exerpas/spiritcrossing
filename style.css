@@ -414,48 +414,57 @@ footer {
     display: block !important;
     border-radius: 10px;
 }
-/* --- EFECTO DE NUBES DE FONDO --- */
+/* --- EFECTO NIEBLA DIFUMINADA REAL --- */
 
-/* Preparamos la sección de contenido para recibir capas en el fondo */
 .section-content {
     position: relative;
-    overflow: hidden; /* Evita que las nubes se salgan de la pantalla */
+    overflow: hidden;
 }
 
-/* Creamos la capa de nubes usando gradientes CSS (sin necesidad de imágenes externas) */
+/* Capa de niebla suave */
 .section-content::before {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%; /* El doble de ancho para que la animación sea fluida al correr */
-    height: 250px; /* Qué tan alto van a subir las nubes en la sección */
-    z-index: 0; /* Se coloca por detrás del texto y los bloques */
-    pointer-events: none; /* No interfiere con los clics del usuario */
+    bottom: -50px; /* La bajamos un poco para ocultar bordes duros */
+    left: -10%;
+    width: 140%; /* Más ancha para que el desenfoque no se corte a los lados */
+    height: 200px; /* Altura de la niebla */
+    z-index: 0;
+    pointer-events: none;
     
-    /* Dibujamos siluetas de nubes suaves usando transparencias blancas */
-    background: 
-        radial-gradient(circle at 20% 120%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 60%),
-        radial-gradient(circle at 50% 130%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.06) 50%, transparent 70%),
-        radial-gradient(circle at 80% 115%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 45%, transparent 65%);
-    background-size: 50% 100%;
+    /* Desenfoque extremo para crear el efecto de gas/humo/niebla */
+    filter: blur(40px);
     
-    /* Activamos el movimiento */
-    animation: moverNubes 45s linear infinite;
+    /* Gradiente suave que va desde transparente, pasa por niebla y se desvanece */
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255, 255, 255, 0.03) 40%,
+        rgba(255, 255, 255, 0.07) 70%,
+        transparent 100%
+    );
+    
+    /* Animación más sutil: la niebla va a respirar subiendo, bajando y meciéndose */
+    animation: flotarNiebla 12s ease-in-out infinite alternate;
 }
 
-/* Forzamos a que el contenedor de las tarjetas se quede al frente de las nubes */
 .grid-container {
     position: relative;
     z-index: 1;
 }
 
-/* Animación que desplaza el fondo horizontalmente */
-@keyframes moverNubes {
+/* Movimiento orgánico para que no sea un bloque tieso */
+@keyframes flotarNiebla {
     0% {
-        background-position: 0px bottom;
+        transform: translateY(0) scaleX(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-15px) scaleX(1.05);
+        opacity: 0.9;
     }
     100% {
-        background-position: 1100px bottom; /* Se desplaza suavemente */
+        transform: translateY(-5px) scaleX(0.95);
+        opacity: 0.6;
     }
 }
