@@ -114,5 +114,29 @@
         <p>&copy; 2026 © Spry Fox. This is an official website for our video game. All rights reserved.</p>
     </footer>
 
+    <script>
+    let indiceImagen = 0;
+    const imagenes = document.querySelectorAll('.slider-img');
+
+    function cambiarImagen(direccion) {
+        // Quita la clase activa a la imagen actual
+        imagenes[indiceImagen].classList.remove('active');
+        
+        // Calcula el nuevo índice
+        indiceImagen += direccion;
+        
+        // Si llega al final, vuelve a la primera
+        if (indiceImagen >= imagenes.length) {
+            indiceImagen = 0;
+        }
+        // Si va hacia atrás del principio, va a la última
+        if (indiceImagen < 0) {
+            indiceImagen = imagenes.length - 1;
+        }
+        
+        // Añade la clase activa a la nueva imagen
+        imagenes[indiceImagen].classList.add('active');
+    }
+</script>
 </body>
 </html>
