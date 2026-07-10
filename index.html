@@ -85,7 +85,6 @@
                     <!-- CAMBIA ESTOS ENLACES POR TUS REDES SOCIALES -->
                     <a href="#" class="social-btn discord">Discord Oficial</a>
                     <a href="#" class="social-btn twitter">Twitter / X</a>
-                    <img src="personaje1.png" alt="Personaje del juego" class="character-corner">
                 </div>
             </div>
 
@@ -121,27 +120,5 @@
         imagenes[indiceImagen].classList.add('active');
     }
         
-<script>
-        let indiceImagen = 0;
-        
-        function cambiarImagen(direccion) {
-            const elementos = document.querySelectorAll('.slider-item');
-            
-            if (elementos.length === 0) return;
-
-            elementos[indiceImagen].classList.remove('active');
-            
-            indiceImagen += direccion;
-            
-            if (indiceImagen >= elementos.length) {
-                indiceImagen = 0;
-            }
-            if (indiceImagen < 0) {
-                indiceImagen = elementos.length - 1;
-            }
-            
-            elementos[indiceImagen].classList.add('active');
-        }
-    </script>
 </body>
 </html>
