@@ -278,3 +278,12 @@ footer {
     .btn-download { font-size: 1.5rem; padding: 12px 30px; }
     .grid-container { grid-template-columns: 1fr; } /* Se vuelve una sola columna */
 }
+
+.game-logo {
+    max-width: 450px;  /* Controla el ancho máximo del logo (ajusta este número a tu gusto) */
+    width: 100%;       /* Hace que el logo sea responsivo y se adapte a celulares */
+    height: auto;      /* Mantiene la proporción original para que no se estire feo */
+    display: block;    /* Lo centra correctamente */
+    margin: 0 auto 15px auto; /* Centra el logo y le da espacio respecto al texto de abajo */
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.5)); /* Le da una sombra suave para que resalte del fondo */
+}
