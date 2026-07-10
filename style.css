@@ -287,3 +287,10 @@ footer {
     margin: 0 auto 15px auto; /* Centra el logo y le da espacio respecto al texto de abajo */
     filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.5)); /* Le da una sombra suave para que resalte del fondo */
 }
+
+.nav-favicon {
+    height: 35px;      /* Controla la altura del icono en la barra de arriba */
+    width: auto;       /* Mantiene la proporción para que no se vea aplastado */
+    display: inline-block;
+    vertical-align: middle; /* Lo alinea perfectamente al centro vertical de la barra */
+}
