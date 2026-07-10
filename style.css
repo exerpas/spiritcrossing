@@ -337,20 +337,21 @@ footer {
 }
 
 /* Cambiamos las reglas para ocultar/mostrar cualquier elemento (video o foto) */
+/* Esto obliga a que todo lo que no esté activo se oculte por completo */
 .slider-item {
+    display: none !important; 
     width: 100%;
-    display: none; /* Oculta todo por defecto */
 }
 
+/* Esto obliga a que solo el elemento activo se muestre */
 .slider-item.active {
-    display: block; /* Muestra solo el que toque ver */
-    animation: unirse 0.4s ease-in-out;
+    display: block !important;
 }
 
 .slider-img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    display: block;
     border-radius: 10px;
 }
 
