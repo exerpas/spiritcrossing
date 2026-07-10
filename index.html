@@ -45,21 +45,22 @@
     <button class="carousel-btn prev-btn" onclick="cambiarImagen(-1)">&#10094;</button>
     
     <!-- Todo el contenido que va a rotar -->
-    <div class="carousel-slide">
-        <!-- 1. El video de YouTube (Elemento activo por defecto) -->
-        <div class="slider-item active">
+  <div class="carousel-slide">
+    <!-- El video tiene que tener 'slider-item' -->
+    <div class="slider-item active">
             <!-- AQUÍ VA TU VIDEO: Cambia este iframe por el tuyo exacto si los enlaces varían -->
             <iframe width="100%" height="450" src="https://www.youtube.com/embed/40LmxL5Cm6I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
-        </div>
+      </div>
 
-        <!-- 2. Tus capturas de pantalla -->
-        <div class="slider-item">
-            <img src="captura1.png" class="slider-img" alt="Captura 1 del juego">
-        </div>
-        <div class="slider-item">
-            <img src="captura2.png" class="slider-img" alt="Captura 2 del juego">
-        </div>
+    <!-- CADA IMAGEN TIENE QUE TENER SU PROPIO DIV CON 'slider-item' -->
+    <div class="slider-item">
+        <img src="captura1.png" class="slider-img" alt="Captura 1">
     </div>
+
+    <div class="slider-item">
+        <img src="captura2.png" class="slider-img" alt="Captura 2">
+    </div>
+</div>
 
     <!-- Flecha Derecha -->
     <button class="carousel-btn next-btn" onclick="cambiarImagen(1)">&#10095;</button>
