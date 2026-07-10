@@ -77,7 +77,7 @@ body {
     position: relative;
     height: 85vh;
     /* CAMBIA ESTA URL POR LA IMAGEN DE FONDO DE TU JUEGO */
-    background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070') no-repeat center center/cover;
+    background: url('fondo.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
