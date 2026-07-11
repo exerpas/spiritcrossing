@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- CONFIGURACIÓN PARA COMPARTIR EL LINK (OPEN GRAPH) -->
     <meta property="og:title" content="Spirit Crossing" />
     <meta property="og:description" content="An epic open-world online adventure! Explore massive cities, farm rare resources, and live your own journey with friends in a vibrant multiplayer world. NEW UPDATE AVAILABLE NOW! Jump in and explore the new content today!" />
     <meta property="og:image" content="https://exerpas.github.io/spiritcrossing/opengraph2.png" />
@@ -11,12 +10,12 @@
     <title>Spirit Crossing - Official Website</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Fuentes estilo arcade/moderno desde Google Fonts -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN (Estilo Brawlhalla) -->
+
     <nav class="navbar">
         <a href="#" class="nav-logo"><img src="favicon.png" alt="Icono" class="nav-favicon"></a>
         <ul class="nav-links">
@@ -27,16 +26,15 @@
         </ul>
     </nav>
 
-    <!-- SECCIÓN PRINCIPAL (HERO) -->
+    
     <header id="HOME" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <!-- LOGO PRINCIPAL DEL JUEGO -->
+       
             <h1 class="main-title"><img src="logo.png" alt="Spirit Crossing Logo" class="game-logo"></h1>
             <p class="tagline">DISCOVER ADVENTURE WITH YOUR FRIENDS</p>
             
-            <!-- BOTÓN DE DESCARGA PRINCIPAL (Brillante) -->
-            <!-- CAMBIA EL '#' POR EL LINK DE TU INSTALADOR -->
+        
             <div class="download-container">
                 <a href="#" class="btn-download">DOWNLOAD</a>
                 <p class="platforms">Available for Windows PC</p>
@@ -44,7 +42,7 @@
         </div>
     </header>
 
-    <!-- SECCIÓN MULTIMEDIA (SOLO VIDEO) -->
+
     <section id="MULTIMEDIA" class="section-media">
         <div class="container">
             <h2 class="section-title">TAKE A LOOK TO THE GAME</h2>
@@ -53,11 +51,11 @@
             </div>
         </div>
     </section>
-    <!-- SECCIÓN DE CONTENIDO (Novedades y Requisitos al estilo Brawlhalla) -->
+    
     <section id="NEWS" class="section-content">
         <div class="container grid-container">
             
-            <!-- COLUMNA IZQUIERDA: NOVEDADES / PARCHES -->
+            
             <div class="content-block">
                 <h2 class="block-title">LAST UPDATES</h2>
                 
@@ -74,7 +72,7 @@
                 </div>
             </div>
 
-            <!-- COLUMNA DERECHA: REQUISITOS Y REDES -->
+           
             <div class="content-block" id="REQUIREMENTS">
                 <h2 class="block-title">SYSTEM REQUIREMENTS</h2>
                 <div class="requirements-box">
@@ -87,7 +85,7 @@
 
                 <h2 class="block-title" style="margin-top: 30px;">JOIN THE COMMUNITY</h2>
                 <div class="community-box">
-                    <!-- CAMBIA ESTOS ENLACES POR TUS REDES SOCIALES -->
+                   
                     <a href="https://discord.com/invite/spirit-crossing" class="social-btn discord">Discord</a>
                     <a href="https://x.com/spryfox" class="social-btn twitter">Twitter / X</a>
                     <a href="https://store.steampowered.com/app/2321960/Spirit_Crossing/" class="social-btn steam">Steam</a>
@@ -97,7 +95,7 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
+  
     <footer>
         <p>&copy; 2026 © Spry Fox. This is an official website for our video game. All rights reserved.</p>
     </footer>
@@ -107,22 +105,16 @@
     const imagenes = document.querySelectorAll('.slider-img');
 
     function cambiarImagen(direccion) {
-        // Quita la clase activa a la imagen actual
         imagenes[indiceImagen].classList.remove('active');
         
         // Calcula el nuevo índice
         indiceImagen += direccion;
-        
-        // Si llega al final, vuelve a la primera
         if (indiceImagen >= imagenes.length) {
             indiceImagen = 0;
         }
-        // Si va hacia atrás del principio, va a la última
         if (indiceImagen < 0) {
             indiceImagen = imagenes.length - 1;
         }
-        
-        // Añade la clase activa a la nueva imagen
         imagenes[indiceImagen].classList.add('active');
     }
         
