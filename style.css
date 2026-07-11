@@ -416,40 +416,55 @@ footer {
     display: block !important;
     border-radius: 10px;
 }
-/* --- NUBES ESTILO CARTOON - VERSIÓN LIGERA --- */
+/* --- EFECTO DE NIEBLA CON HUMITO --- */
 
-/* 1. Eliminamos el recorte de la sección */
 .section-content {
     position: relative;
-    overflow: visible; /* Cambiado a visible para que no corte la niebla */
+    overflow: hidden; /* Mantiene el humo contenido */
 }
 
-/* 2. Usamos una sola capa global que se integre con el fondo */
+/* Forzamos a que el contenido esté por encima */
+.grid-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Capa de humo */
 .section-content::before {
     content: "";
     position: absolute;
-    bottom: -50px; 
+    bottom: -50px;
     left: 0;
-    width: 100%;
+    width: 200%; /* Más ancho para que la animación sea fluida */
     height: 300px;
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
     
-    /* Degradado ultra suave, sin círculos matemáticos que creen bordes */
+    /* Degradado con más puntos de opacidad para crear "bolsas" de humo */
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(255, 255, 255, 0.02) 20%,
-        rgba(255, 255, 255, 0.05) 50%,
-        rgba(255, 255, 255, 0.03) 100%
+        rgba(255, 255, 255, 0.03) 20%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.03) 80%,
+        transparent 100%
     );
     
-    /* Difuminado suave para que parezca vapor/niebla de juego */
-    filter: blur(20px);
+    /* Desenfoque para suavizar el "humito" */
+    filter: blur(25px);
+    
+    /* Animación de movimiento lento */
+    animation: moverHumo 30s linear infinite;
 }
 
-/* 3. Aseguramos que los cuadros estén SIEMPRE encima */
-.grid-container {
-    position: relative;
-    z-index: 2; /* Mayor que el z-index de las nubes */
+@keyframes moverHumo {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-25%) translateY(-10px); /* El humo sube y baja un poco */
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
 }
