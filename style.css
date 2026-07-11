@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
-/* VARIABLES DE COLOR - ¡Cambia los colores aquí fácilmente! */
 :root {
-    --color-fondo-oscuro: #121826;     /* Fondo general de la página */
-    --color-fondo-bloques: #1b2234;    /* Fondo de las tarjetas de noticias y cajas */
-    --color-principal-neon: #ffcc00;   /* Amarillo/Dorado brillante estilo Brawlhalla */
-    --color-principal-hover: #e6b800;  /* El color cuando pasas el mouse por encima */
+    --color-fondo-oscuro: #121826;     
+    --color-fondo-bloques: #1b2234;    
+    --color-principal-neon: #ffcc00;   
+    --color-principal-hover: #e6b800;  
     --color-texto-blanco: #ffffff;
     --color-texto-gris: #a0aec0;
-    --color-discord: #5865F2;          /* Color oficial de Discord */
+    --color-discord: #5865F2;          
 }
 
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -30,7 +29,7 @@ body {
     padding: 40px 20px;
 }
 
-/* MENÚ DE NAVEGACIÓN */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -72,11 +71,10 @@ body {
     color: var(--color-principal-neon);
 }
 
-/* SECCIÓN PRINCIPAL (HERO) */
+
 .hero {
     position: relative;
     height: 85vh;
-    /* CAMBIA ESTA URL POR LA IMAGEN DE FONDO DE TU JUEGO */
     background: url('fondo.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
@@ -117,7 +115,7 @@ body {
     text-transform: uppercase;
 }
 
-/* EL BOTÓN DE INSTALAR */
+
 .btn-download {
     display: inline-block;
     font-family: 'League Gothic', sans-serif;
@@ -153,7 +151,7 @@ body {
     font-weight: bold;
 }
 
-/* SECCIÓN MULTIMEDIA */
+
 .section-media {
     background-color: var(--color-fondo-oscuro);
     text-align: center;
@@ -182,7 +180,7 @@ body {
     display: block;
 }
 
-/* SECCIÓN GRID (NOVEDADES Y REQUISITOS) */
+
 .section-content {
     background-color: var(--color-fondo-oscuro);
     padding-bottom: 60px;
@@ -190,7 +188,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 2 columnas: la de noticias es más ancha */
+    grid-template-columns: 2fr 1fr; 
     gap: 40px;
 }
 
@@ -202,7 +200,7 @@ body {
     padding-bottom: 5px;
 }
 
-/* Tarjetas de Noticias */
+
 .news-card {
     background-color: var(--color-fondo-bloques);
     padding: 20px;
@@ -241,7 +239,7 @@ body {
     color: var(--color-principal-neon);
 }
 
-/* Botones de Redes Sociales */
+
 .social-btn {
     display: block;
     text-align: center;
@@ -262,9 +260,9 @@ body {
 .twitter { background-color: #1DA1F2; }
 .steam { background-color: #1b2838; }
 
-/* Footer */
+
 footer {
-    position: relative; /* <--- Agrega esta línea aquí */
+    position: relative; 
     background-color: #0b0e17;
     padding: 30px;
     text-align: center;
@@ -273,57 +271,51 @@ footer {
     border-top: 1px solid var(--color-fondo-bloques);
 }
 
-/* Responsivo para celulares */
+
 @media (max-width: 768px) {
     .navbar { padding: 15px 20px; }
-    .nav-links { display: none; } /* Oculta el menú en móviles para simplificar */
+    .nav-links { display: none; } 
     .main-title { font-size: 3rem; }
     .tagline { font-size: 1rem; }
     .btn-download { font-size: 1.5rem; padding: 12px 30px; }
-    .grid-container { grid-template-columns: 1fr; } /* Se vuelve una sola columna */
+    .grid-container { grid-template-columns: 1fr; } 
 }
 
 .game-logo {
-    max-width: 360px;  /* Controla el ancho máximo del logo (ajusta este número a tu gusto) */
-    width: 100%;       /* Hace que el logo sea responsivo y se adapte a celulares */
-    height: auto;      /* Mantiene la proporción original para que no se estire feo */
-    display: block;    /* Lo centra correctamente */
-    margin: 0 auto 15px auto; /* Centra el logo y le da espacio respecto al texto de abajo */
-    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.5)); /* Le da una sombra suave para que resalte del fondo */
+    max-width: 360px;  
+    width: 100%;      
+    height: auto;      
+    display: block;   
+    margin: 0 auto 15px auto; 
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.5)); 
 }
 
 .nav-favicon {
-    height: 35px;      /* Controla la altura del icono en la barra de arriba */
-    width: auto;       /* Mantiene la proporción para que no se vea aplastado */
+    height: 35px;     
+    width: auto;       
     display: inline-block;
-    vertical-align: middle; /* Lo alinea perfectamente al centro vertical de la barra */
+    vertical-align: middle; 
 }
 
 .character-corner {
-    /* 1. Mantenlo estático (absolute), no flotante (fixed) */
+    
     position: absolute; 
-    
-    /* 2. Mantén su posición a la derecha */
     right: 15px;         
+    bottom: -150px;      
     
-    /* 3. ¡EL TRUCO PARA BAJARLO MUCHO MÁS! */
-    /* Usamos un valor negativo muy grande para 'bottom'. */
-    /* Esto lo empuja HACIA ABAJO de su límite normal. */
-    bottom: -150px;      /* <--- Ajusta este número: -200px lo baja más, -100px lo sube más */
-    
-    /* 4. Mantenemos tamaño y capas */
-    max-width: 200px;    /* Ajusta el tamaño si es necesario */
+ 
+    max-width: 200px;    
     width: 100%;
     height: auto;
-    z-index: 10;         /* Asegura que esté sobre el fondo, pero bajo los textos si se encima */
-    pointer-events: none; /* No interfiere con clics */
-    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); /* Sombra para profundidad */
+    z-index: 10;         
+    pointer-events: none; 
+    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); 
 }
 
-/* Contenedor del carrusel */
+
 .carousel-container {
     position: relative;
-    max-width: 800px; /* Ajusta este ancho para que combine con el tamaño de tu video */
+    max-width: 800px; 
     margin: 30px auto;
     display: flex;
     align-items: center;
@@ -333,20 +325,19 @@ footer {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Contenedor interno de imágenes */
+
 .carousel-slide {
     width: 100%;
     display: flex;
 }
 
-/* Cambiamos las reglas para ocultar/mostrar cualquier elemento (video o foto) */
-/* Esto obliga a que todo lo que no esté activo se oculte por completo */
+
 .slider-item {
     display: none !important; 
     width: 100%;
 }
 
-/* Esto obliga a que solo el elemento activo se muestre */
+
 .slider-item.active {
     display: block !important;
 }
@@ -358,13 +349,13 @@ footer {
     border-radius: 10px;
 }
 
-/* Animación suave al cambiar de imagen */
+
 @keyframes unirse {
     from { opacity: 0.4; }
     to { opacity: 1; }
 }
 
-/* Botones de las flechas a los costados */
+
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -381,27 +372,27 @@ footer {
 }
 
 .carousel-btn:hover {
-    background-color: var(--color-principal-neon, #fffb00); /* Cambia al color de tu juego al pasar el mouse */
+    background-color: var(--color-principal-neon, #fffb00); 
     color: black;
 }
 
-/* Posición exacta de cada flecha */
+
 .prev-btn { left: 15px; }
 .next-btn { right: 15px; }
-/* --- TRUCO DEFINITIVO PARA EL CARRUSEL --- */
 
-/* 1. Oculta por defecto absolutamente TODO lo que esté dentro del carrusel */
+
+
 .carousel-slide .slider-item {
     display: none !important;
     width: 100% !important;
 }
 
-/* 2. FUERZA a que lo que tenga la clase 'active' se muestre, sea video o imagen */
+
 .carousel-slide .slider-item.active {
     display: block !important;
 }
 
-/* 3. Asegura que las imágenes no midan 0 píxeles */
+
 .slider-img {
     width: 100% !important;
     height: auto !important;
@@ -409,38 +400,38 @@ footer {
     border-radius: 10px;
 }
 
-/* 4. Asegura que el video no se rompa */
+
 .video-trailer {
     width: 100% !important;
     aspect-ratio: 16/9 !important;
     display: block !important;
     border-radius: 10px;
 }
-/* --- EFECTO DE NIEBLA CON HUMITO --- */
+
 
 .section-content {
     position: relative;
-    overflow: hidden; /* Mantiene el humo contenido */
+    overflow: hidden; 
 }
 
-/* Forzamos a que el contenido esté por encima */
+
 .grid-container {
     position: relative;
     z-index: 2;
 }
 
-/* Capa de humo */
+
 .section-content::before {
     content: "";
     position: absolute;
     bottom: -50px;
     left: 0;
-    width: 200%; /* Más ancho para que la animación sea fluida */
+    width: 200%; 
     height: 300px;
     z-index: 1;
     pointer-events: none;
     
-    /* Degradado con más puntos de opacidad para crear "bolsas" de humo */
+    
     background: linear-gradient(
         to bottom,
         transparent 0%,
@@ -450,10 +441,10 @@ footer {
         transparent 100%
     );
     
-    /* Desenfoque para suavizar el "humito" */
+    
     filter: blur(25px);
     
-    /* Animación de movimiento lento */
+    
     animation: moverHumo 30s linear infinite;
 }
 
@@ -462,7 +453,7 @@ footer {
         transform: translateX(-50%) translateY(0);
     }
     50% {
-        transform: translateX(-25%) translateY(-10px); /* El humo sube y baja un poco */
+        transform: translateX(-25%) translateY(-10px); 
     }
     100% {
         transform: translateX(-50%) translateY(0);
